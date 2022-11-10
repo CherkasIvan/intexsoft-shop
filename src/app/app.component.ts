@@ -37,9 +37,7 @@ export class AppComponent {
     //     console.log(el);
     //   });
 
-    this.requestsService.getProducts().subscribe((el: any) => {
-      console.log(el);
-    });
+
 
     this.requestsService.getReviews(1).subscribe((el: any) => {
       console.log(el);

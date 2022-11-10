@@ -1,1 +1,21 @@
-<p>asdfa</p>
+<div class="modal-container">
+  <p class="modal-title">Login form</p>
+  <form class="inputs" [formGroup]="loginForm">
+    <label>Enter your name for login</label>
+    <input type="text" class="login" formControlName="loginName" />
+
+    <label>Enter your password for login</label>
+    <input type="password" class="password" formControlName="loginPassword" />
+    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </form>
+  <div class="buttons">
+    <button class="cancel" (click)="closeLogin()">cancel</button>
+    <button
+      class="success"
+      (click)="submitLogin()"
+      [disabled]="this.loginForm.invalid"
+    >
+      success
+    </button>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="container">
+  <ul class="items">
+    <li class="item" *ngFor="let item of products; index as i">
+      <span class="item-title">{{ item.title }}</span>
+      <img [src]="thumbnail" class="item-img" alt="img" />
+      <p class="item-text">{{ item.text }}</p>
+    </li>
+  </ul>
+</div>

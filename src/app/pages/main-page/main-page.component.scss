@@ -8,6 +8,9 @@
   background: linear-gradient(#e66465, #9198e5);
 
   .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 90%;
     height: 100%;
   }

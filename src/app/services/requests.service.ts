@@ -1,9 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
 
-import { MAIN_URL } from '../main-url';
+import { MAIN_URL } from '../shared/constants/main-url';
 
 @Injectable({
   providedIn: 'root',

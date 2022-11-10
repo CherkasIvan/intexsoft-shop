@@ -14,7 +14,7 @@ export class ModalsService {
   public openRegistrationDialog(): void {
     const dialogRef = this.dialog.open(RegistrationModalComponent, {
       width: '480px',
-      height: window.innerWidth > 536 ? '298px' : '198px',
+      minHeight: window.innerWidth > 536 ? '200px' : '100px',
     });
     dialogRef.afterClosed().subscribe((result: any) => {});
   }
@@ -22,8 +22,12 @@ export class ModalsService {
   public openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginModalComponent, {
       width: '480px',
-      minHeight: window.innerWidth > 536 ? '298px' : '198px',
+      minHeight: window.innerWidth > 536 ? '200px' : '100px',
     });
     dialogRef.afterClosed().subscribe((result: any) => {});
+  }
+
+  public closeDialog(): void {
+    this.dialog.closeAll();
   }
 }

@@ -7,7 +7,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [],
   exports: [],
-  imports: [MatDialogModule, MatSnackBarModule, MatProgressSpinnerModule],
+  imports: [
+    MatDialogModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+  ],
   providers: [],
 })
 export class SharedModule {}

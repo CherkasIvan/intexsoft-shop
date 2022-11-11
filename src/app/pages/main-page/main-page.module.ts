@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { MainPageRoutingModule } from './main-page-routing.module';
 import { HeaderModule } from '../../components/header/header.module';
-import { ContentModule } from '../../components/content/content.module';
 
 import { MainPageComponent } from './main-page.component';
+import { ContentComponent } from '../../components/content/content.component';
+import { ReviewsComponent } from '../../components/reviews/reviews.component';
 
 @NgModule({
-  declarations: [MainPageComponent],
+  declarations: [MainPageComponent, ContentComponent, ReviewsComponent],
   exports: [MainPageComponent],
-  imports: [CommonModule, MainPageRoutingModule, HeaderModule, ContentModule],
+  imports: [CommonModule, MainPageRoutingModule, HeaderModule],
 })
 export class MainPageModule {}

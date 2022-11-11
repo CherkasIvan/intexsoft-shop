@@ -19,17 +19,6 @@ export class AppComponent {
   };
 
   ngOnInit(): void {
-    // this.requestsService
-    //   .authorization(JSON.stringify(this.user))
-    //   .subscribe((el: any) => {
-    //     console.log(el);
-    //   });
-
-    // this.requestsService
-    //   .registration(JSON.stringify(this.user))
-    //   .subscribe((el: any) => {
-    //     console.log(el);
-    //   });
 
     // this.requestsService
     //   .postReviews(1, JSON.stringify(this.review))
@@ -39,8 +28,5 @@ export class AppComponent {
 
 
 
-    this.requestsService.getReviews(1).subscribe((el: any) => {
-      console.log(el);
-    });
   }
 }

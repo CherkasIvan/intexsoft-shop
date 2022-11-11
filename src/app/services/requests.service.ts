@@ -31,10 +31,10 @@ export class RequestsService {
   public postReviews(productId: number, body: any): any {
     console.log(body);
     const headers = new HttpHeaders()
-      // .set('accept', 'application/json')
+      .set('accept', 'application/json')
       .set('Content-Type', 'application/json');
 
-    return this.http.post(`${MAIN_URL}/api/reviews/${productId}`, body, {
+    return this.http.post(`${MAIN_URL}/api/reviews/${productId}/`, body, {
       headers,
     });
   }

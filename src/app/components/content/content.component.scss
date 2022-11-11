@@ -19,12 +19,27 @@
       align-items: center;
       justify-content: space-between;
       flex-direction: column;
+      transition-duration: 1s;
 
       &-title,
       &-text {
         text-transform: uppercase;
         font-weight: 600;
       }
+
+      &-img {
+        max-width: 90%;
+        border: 5px solid lightblue;
+        border-radius: 8px;
+      }
+    }
+
+    .item:hover {
+      padding: 10px;
+      cursor: pointer;
+      border: 5px solid yellow;
+      border-radius: 8px;
+      color: white;
     }
   }
 }

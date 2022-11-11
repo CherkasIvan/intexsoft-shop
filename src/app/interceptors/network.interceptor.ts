@@ -21,15 +21,12 @@ export class NetworkInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     this.totalRequests++;
-    console.log(request);
     if (request.url.indexOf('/main') < 0) {
       this.loader.showSpinner();
     }
 
     return next.handle(request).pipe(
       finalize(() => {
-        console.log(this.totalRequests);
-        console.log(this.completedRequests);
         this.completedRequests++;
         if (this.completedRequests === this.totalRequests) {
           this.loader.hideSpinner();

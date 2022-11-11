@@ -30,6 +30,10 @@ export class LoginModalComponent implements OnInit {
     this.modal.closeDialog();
   }
 
+  public getAuthToken(token: any): void {
+    this.requestsService.token$?.next(token);
+  }
+
   public submitLogin(): any {
     let userName = this.loginForm.get('loginName')?.value;
     let userPassword = this.loginForm.get('loginPassword')?.value;
@@ -47,6 +51,8 @@ export class LoginModalComponent implements OnInit {
           console.log(el);
           sessionStorage.setItem('success', el.success);
           sessionStorage.setItem('token', el.token);
+          this.getAuthToken(sessionStorage.getItem('token'));
+          console.log(this.requestsService.token$?.value);
         } else {
           this.errorMessage = el.message;
         }

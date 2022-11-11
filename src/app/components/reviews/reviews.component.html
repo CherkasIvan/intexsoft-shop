@@ -1,1 +1,51 @@
-<p>reviews works!</p>
+<div class="container" *ngIf="show">
+  <ul class="reviews-block">
+    <li class="review-item" *ngFor="let item of slides; index as i">
+      <div class="row">
+        <div class="col-sm-12">
+          <ul
+            class="list-inline rating-list"
+            *ngFor="let star of stars"
+            style="display: inline-block"
+          >
+            <li class="item-rate" [ngClass]="{ selected: star <= item.rate }">
+              ★
+              <i class="fa fa-star"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <span class="item-rate">{{ item.rate }}</span>
+      <p class="item-text">{{ item.text }}</p>
+    </li>
+  </ul>
+
+  <form class="message-block" [formGroup]="reviewGroup">
+    <div class="row">
+      <div class="col-sm-12">
+        <ul
+          class="list-inline rating-list"
+          *ngFor="let star of stars; let i = index"
+          style="display: inline-block"
+        >
+          <li
+            (click)="countStar(star)"
+            id="{{ 'starId' + i }}"
+            [ngClass]="{ selected: star <= selectedValue }"
+          >
+            ★
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <input type="area" class="message-area" formControlName="userReview" />
+    <div class="message-buttons">
+      <button class="clear-review" (click)="clearReview()">clear review</button>
+      <button class="send-review" (click)="sendReview(selectedValue)">
+        send review
+      </button>
+    </div>
+  </form>
+</div>

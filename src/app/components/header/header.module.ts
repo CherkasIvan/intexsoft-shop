@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { SharedModule } from '../../shared/shared.module';
+
 import { HeaderComponent } from './header.component';
 import { RegistrationModalComponent } from './modals/registration-modal/registration-modal.component';
 import { LoginModalComponent } from './modals/login-modal/login-modal.component';
-
-import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,4 +18,4 @@ import { SharedModule } from '../../shared/shared.module';
   exports: [HeaderComponent],
   imports: [CommonModule, SharedModule, FormsModule, ReactiveFormsModule],
 })
-export class HeaderModule {}
+export class HeaderModule { }

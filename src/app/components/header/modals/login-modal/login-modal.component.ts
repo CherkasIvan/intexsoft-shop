@@ -16,7 +16,7 @@ export class LoginModalComponent implements OnInit {
   constructor(
     public modal: ModalsService,
     public requestsService: RequestsService
-  ) {}
+  ) { }
 
   public createLoginForm() {
     this.loginForm = new FormGroup({
@@ -32,6 +32,9 @@ export class LoginModalComponent implements OnInit {
 
   public getAuthToken(token: any): void {
     this.requestsService.token$?.next(token);
+    if (sessionStorage.getItem('token')) {
+      this.requestsService.isLogin$?.next(true);
+    }
   }
 
   public submitLogin(): any {
@@ -48,11 +51,9 @@ export class LoginModalComponent implements OnInit {
         if (el.success === true) {
           this.loginForm.reset();
           this.modal.closeDialog();
-          console.log(el);
           sessionStorage.setItem('success', el.success);
           sessionStorage.setItem('token', el.token);
           this.getAuthToken(sessionStorage.getItem('token'));
-          console.log(this.requestsService.token$?.value);
         } else {
           this.errorMessage = el.message;
         }

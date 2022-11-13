@@ -7,6 +7,7 @@ import {
 } from '@angular/common/http';
 
 import { finalize, Observable } from 'rxjs';
+
 import { LoadingService } from '../services/loading.service';
 
 @Injectable()
@@ -14,7 +15,7 @@ export class NetworkInterceptor implements HttpInterceptor {
   public totalRequests = 0;
   public completedRequests = 0;
 
-  constructor(private loader: LoadingService) {}
+  constructor(private loader: LoadingService) { }
 
   intercept(
     request: HttpRequest<unknown>,

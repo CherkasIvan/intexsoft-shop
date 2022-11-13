@@ -43,4 +43,4 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

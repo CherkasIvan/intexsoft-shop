@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { LoginModalComponent } from '../components/header/modals/login-modal/login-modal.component';
 import { RegistrationModalComponent } from '../components/header/modals/registration-modal/registration-modal.component';
+
 import { RequestsService } from './requests.service';
 
 @Injectable({

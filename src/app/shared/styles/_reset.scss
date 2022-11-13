@@ -3,11 +3,13 @@
   margin: 0;
   border: 0;
 }
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 html,
 body {
   margin: 0;
@@ -20,35 +22,43 @@ body {
   overflow-y: hidden;
   overflow-x: hidden;
 }
+
 input,
 button,
 textarea {
   font-family: inherit;
 }
+
 input::-ms-clear {
   display: none;
 }
+
 nav,
 header,
 footer,
 aside {
   display: block;
 }
+
 a:focus,
 a:active {
   outline: none;
 }
+
 a,
 a:visited,
 a:focus {
   text-decoration: none;
 }
+
 ul li {
   list-style: none;
 }
+
 img {
   vertical-align: top;
 }
+
 h1,
 h2,
 h3,

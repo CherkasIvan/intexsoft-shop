@@ -3,11 +3,7 @@
     <li class="review-item" *ngFor="let item of slides; index as i">
       <div class="row">
         <div class="col-sm-12">
-          <ul
-            class="list-inline rating-list"
-            *ngFor="let star of stars"
-            style="display: inline-block"
-          >
+          <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
             <li class="item-rate" [ngClass]="{ selected: star <= item.rate }">
               ★
               <i class="fa fa-star"></i>
@@ -24,16 +20,8 @@
   <form class="message-block" [formGroup]="reviewGroup">
     <div class="row">
       <div class="col-sm-12">
-        <ul
-          class="list-inline rating-list"
-          *ngFor="let star of stars; let i = index"
-          style="display: inline-block"
-        >
-          <li
-            (click)="countStar(star)"
-            id="{{ 'starId' + i }}"
-            [ngClass]="{ selected: star <= selectedValue }"
-          >
+        <ul class="list-inline rating-list" *ngFor="let star of stars; let i = index" style="display: inline-block">
+          <li (click)="countStar(star)" id="{{ 'starId' + i }}" [ngClass]="{ selected: star <= selectedValue }">
             ★
           </li>
         </ul>

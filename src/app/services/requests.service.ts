@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { BehaviorSubject } from 'rxjs';
 
 import { MAIN_URL } from '../shared/constants/main-url';
@@ -10,13 +11,13 @@ import { MAIN_URL } from '../shared/constants/main-url';
 export class RequestsService {
   public products$: BehaviorSubject<[]> = new BehaviorSubject([]);
   public token$?: BehaviorSubject<string> = new BehaviorSubject('');
+  public isLogin$?: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public productId$?: BehaviorSubject<any> = new BehaviorSubject(0);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public authorization(body: any): any {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    console.log(headers);
     return this.http.post(`${MAIN_URL}/api/login/`, body, {
       headers,
     });

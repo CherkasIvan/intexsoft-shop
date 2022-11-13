@@ -6,12 +6,14 @@ import {
   HttpInterceptor,
   HttpErrorResponse,
 } from '@angular/common/http';
+
 import { catchError, Observable, throwError } from 'rxjs';
+
 import { RequestsService } from '../services/requests.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private requestsService: RequestsService) {}
+  constructor(private requestsService: RequestsService) { }
 
   intercept(
     request: HttpRequest<any>,
@@ -20,12 +22,10 @@ export class TokenInterceptor implements HttpInterceptor {
     let token = sessionStorage.getItem('token');
 
     if (token) {
-      console.log(token);
       // If we have a token, we set it to the header
       request = request.clone({
         setHeaders: { Authorization: `${token}` },
       });
-      console.log(request);
     }
 
     return next.handle(request).pipe(

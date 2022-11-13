@@ -1,20 +1,12 @@
 <div class="container">
   <ul class="items">
-    <li
-      class="item"
-      *ngFor="let item of products; index as i"
-      (click)="getProductsReviews(item.id)"
-    >
+    <li class="item" *ngFor="let item of products; index as i" (click)="getProductsReviews(item.id)">
       <span class="item-title">{{ item.title }}</span>
-      <img
-        src="../../../assets/img/{{ item.img }}"
-        class="item-img"
-        alt="img"
-      />
+      <img src="../../../assets/img/{{ item.img }}" class="item-img" alt="img" />
       <p class="item-text">{{ item.text }}</p>
     </li>
   </ul>
-  <div class="error" *ngIf="errorMessage">
+  <div class="error" *ngIf="errorMessage && !hideError">
     <p class="unreg-user-message">{{ errorMessage }}</p>
     <button class="open-unreg-user-modal" (click)="openLogin()">login</button>
   </div>

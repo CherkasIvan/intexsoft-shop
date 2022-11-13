@@ -10,11 +10,7 @@
   </form>
   <div class="buttons">
     <button class="cancel" (click)="closeLogin()">cancel</button>
-    <button
-      class="success"
-      (click)="submitLogin()"
-      [disabled]="this.loginForm.invalid"
-    >
+    <button class="success" (click)="submitLogin()" [disabled]="this.loginForm.invalid">
       success
     </button>
   </div>

@@ -20,4 +20,4 @@ import { ReviewsComponent } from '../../components/reviews/reviews.component';
     ReactiveFormsModule,
   ],
 })
-export class MainPageModule {}
+export class MainPageModule { }

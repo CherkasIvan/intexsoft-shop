@@ -8,7 +8,7 @@ import { ModalsService } from '../../services/modals.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(public dialog: ModalsService) {}
+  constructor(public dialog: ModalsService) { }
 
   openRegistration() {
     this.dialog.openRegistrationDialog();

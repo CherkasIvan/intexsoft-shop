@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { RequestsService } from 'src/app/services/requests.service';
 
+import { RequestsService } from '../../../../services/requests.service';
 import { ModalsService } from '../../../../services/modals.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class RegistrationModalComponent implements OnInit {
   constructor(
     public modal: ModalsService,
     public requestsService: RequestsService
-  ) {}
+  ) { }
 
   public createLoginForm() {
     this.registrationForm = new FormGroup({
@@ -42,7 +42,6 @@ export class RegistrationModalComponent implements OnInit {
           this.modal.openLoginDialog()
         } else {
           this.errorMessage = el.message;
-          console.log(this.errorMessage);
         }
       });
   }

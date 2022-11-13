@@ -11,23 +11,23 @@ import { RequestsService } from '../../services/requests.service';
 export class ContentComponent implements OnInit {
   public products!: any;
   public errorMessage?: string;
+  public hideError: boolean = false
 
   constructor(
     private requestsService: RequestsService,
     private dialog: ModalsService
-  ) {}
+  ) { }
 
   public getProductsReviews(productId: any) {
+    this.requestsService.productId$?.next(productId)
+
     if (!sessionStorage.getItem('token')) {
-      console.log(!sessionStorage.getItem('token'));
       this.errorMessage = 'You are not authorized. Do you want to log in?';
       return;
     }
 
     this.requestsService.getReviews(productId).subscribe((el: any) => {
       this.requestsService.products$.next(el);
-
-      console.log(this.requestsService.products$.value);
       return el;
     });
   }
@@ -38,9 +38,17 @@ export class ContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem('token')) {
+      this.requestsService.isLogin$?.next(true);
+    }
+
     this.requestsService.getProducts().subscribe((el: any) => {
       this.products = el;
       return this.products;
     });
+
+    this.requestsService.isLogin$?.subscribe(el => {
+      this.hideError = el
+    })
   }
 }

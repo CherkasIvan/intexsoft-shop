@@ -5,20 +5,12 @@
     <input type="text" class="login" formControlName="registrationName" />
 
     <label>Enter your password for registration</label>
-    <input
-      type="password"
-      class="password"
-      formControlName="registrationPassword"
-    />
+    <input type="password" class="password" formControlName="registrationPassword" />
     <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
   </form>
   <div class="buttons">
     <button class="cancel" (click)="closeRegistration()">cancel</button>
-    <button
-      class="success"
-      (click)="submitRegistration()"
-      [disabled]="this.registrationForm.invalid"
-    >
+    <button class="success" (click)="submitRegistration()" [disabled]="this.registrationForm.invalid">
       success
     </button>
   </div>

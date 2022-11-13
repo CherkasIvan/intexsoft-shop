@@ -14,4 +14,4 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   ],
   providers: [],
 })
-export class SharedModule {}
+export class SharedModule { }

@@ -14,6 +14,7 @@ export class ReviewsComponent implements OnInit {
   public slides?: any;
   public reviewGroup!: FormGroup;
   public show: boolean = false;
+  public itemId!: number
 
   public createReviewForm() {
     this.reviewGroup = new FormGroup({
@@ -38,20 +39,32 @@ export class ReviewsComponent implements OnInit {
       });
     this.clearReview();
   }
-  constructor(public requestsService: RequestsService) {}
+  constructor(public requestsService: RequestsService) { }
 
   countStar(star: number) {
     this.selectedValue = star;
   }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem('token')) {
-      this.show = true;
+    this.requestsService.isLogin$?.subscribe((loaded) => {
+      this.show = loaded;
       this.createReviewForm();
+
+      this.requestsService.productId$?.subscribe(id => {
+        this.itemId = id
+      })
+
+      if (this.itemId !== 0) {
+        this.requestsService.getReviews(this.itemId).subscribe((el: any) => {
+          this.requestsService.products$.next(el);
+          return el;
+        });
+      }
+
       this.requestsService.products$.subscribe((el) => {
         this.slides = el;
         return this.slides;
       });
-    }
+    })
   }
 }
